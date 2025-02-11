@@ -46,7 +46,7 @@ export default function Header(){
                             <li
                                 key={navLink.id}
                                 onClick={()=>setOpenMenu(false)}
-                                className={`${navLink.path === pathname ? 'text-primaryColor border-b border-primaryColor':'text-headerColor'} ${openMenu && 'mb-6'} uppercase w-fit text-sm font-bold hover:text-primaryColor hover:border-b border-primaryColor transition duration-300 ease-linear`}
+                                className={`${navLink.path === pathname ? 'text-primaryColor border-b border-primaryColor':'text-headerColor'} ${openMenu ? 'mb-6': 'mb-0'} uppercase w-fit text-sm font-bold hover:text-primaryColor hover:border-b border-primaryColor transition duration-300 ease-linear`}
                             >
                                 <Link
                                     href={navLink.path}
