@@ -6,7 +6,7 @@ export const headerVariant = {
         }
     },
     visible: {
-        height: '50vh',
+        height: '60vh',
         transition: {
             duratiion: 3
         }

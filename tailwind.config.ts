@@ -15,6 +15,10 @@ export default {
         whiteColor: '#ffffff',
         textColor: '#cecece'
       },
+      fontFamily: {
+        headerFont: ['var(--font-poppins)', 'sans-serif'],
+        bodyFont: ['var(--font-roboto)', 'sans-serif']
+      }
     },
   },
   plugins: [],

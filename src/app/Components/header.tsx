@@ -32,10 +32,10 @@ export default function Header(){
             className={`mb-8 overflow-hidden shadow-2xl transition-all  shadow-shadowColor fixed top-0 duration-300 ease-linear left-0 w-[100vw] py-[1.5rem] md:py-0 px-[5%] md:h-[5rem] bg-whiteColor`}
         >
             <nav 
-                className="flex items-center justify-between flex-wrap "
+                className="flex items-center justify-between flex-wrap font-headerFont"
             >
                 <div
-                    className="md:w-[20%] text-primaryColor font-bold uppercase md:text-2xl"
+                    className="md:w-[20%] text-primaryColor uppercase font-bold md:text-xl"
                 >
                     <Link
                         href='/'
@@ -50,14 +50,14 @@ export default function Header(){
                     {openMenu ? <IoMdClose /> : <IoMdMenu />}
                 </span>
                 <ul
-                    className={` transition-all duration-300 md:py-[1.5rem] ease-linear md:flex items-center justify-between w-full h-[50vh] mt-8 md:mt-0 md:h-[5rem] md:w-[70%]`}
+                    className={` transition-all duration-300 md:py-[1.5rem] ease-linear md:flex items-center justify-between w-full h-[60vh] mt-8 md:mt-0 md:h-[5rem] md:w-[70%]`}
                 >
                     {
                         navLinks.map((navLink)=>(
                             <li
                                 key={navLink.id}
                                 onClick={()=>setOpenMenu(false)}
-                                className={`${navLink.path === pathname ? 'text-primaryColor border-b border-primaryColor':'text-headerColor'} mb-6 uppercase md:mb-0 w-fit text-sm font-bold hover:text-primaryColor hover:border-b border-primaryColor transition duration-300 ease-linear`}
+                                className={`${navLink.path === pathname ? 'text-primaryColor border-b border-primaryColor':'text-headerColor'} mb-6 uppercase font-headerFont font-semibold md:mb-0 w-fit text-[0.85rem]  hover:text-primaryColor hover:border-b border-primaryColor transition duration-300 ease-linear`}
                             >
                                 <Link
                                     href={navLink.path}
