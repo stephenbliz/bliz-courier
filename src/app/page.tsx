@@ -1,9 +1,13 @@
+import Hero from "./Components/hero"
+import TrackSearch from "./Components/trackSearch"
+
 export default function Home(){
     return(
-        <div
-            className="text-2xl font-bold text-center mt-[20vh]"
+        <section
+            className="mt-[5rem] relative"
         >
-            This is the home page
-        </div>
+            <Hero />
+            <TrackSearch />
+        </section>
     )
 }

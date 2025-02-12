@@ -23,7 +23,7 @@ export default function Footer(){
                 className="md:grid grid-cols-3 px-[5%] border-b border-gray-600 gap-2 items-center py-[3rem] md:py-[5rem]  text-whiteColor uppercase"
             >
                 <div
-                    className="md:text-2xl md:col-span-2 lg:col-span-1 mb-8 lg:mb-0 font-headerFont text-primaryColor font-bold"
+                    className="md:text-xl md:col-span-2 lg:col-span-1 mb-8 lg:mb-0 font-headerFont text-primaryColor font-bold"
                 >
                     <Link
                         href='/'

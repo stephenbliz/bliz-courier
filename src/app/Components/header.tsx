@@ -29,7 +29,7 @@ export default function Header(){
             variants={headerVariant}
             initial='hidden'
             animate={openMenu? 'visible' : 'hidden'}
-            className={`mb-8 overflow-hidden shadow-2xl transition-all  shadow-shadowColor fixed top-0 duration-300 ease-linear left-0 w-[100vw] py-[1.5rem] md:py-0 px-[5%] md:h-[5rem] bg-whiteColor`}
+            className={`mb-8 overflow-hidden shadow-2xl transition-all  shadow-shadowColor fixed z-[1000] top-0 duration-300 ease-linear left-0 w-[100vw] py-[1.5rem] md:py-0 px-[5%] md:h-[5rem] bg-whiteColor`}
         >
             <nav 
                 className="flex items-center justify-between flex-wrap font-headerFont"
@@ -57,7 +57,7 @@ export default function Header(){
                             <li
                                 key={navLink.id}
                                 onClick={()=>setOpenMenu(false)}
-                                className={`${navLink.path === pathname ? 'text-primaryColor border-b border-primaryColor':'text-headerColor'} mb-6 uppercase font-headerFont font-semibold md:mb-0 w-fit text-[0.85rem]  hover:text-primaryColor hover:border-b border-primaryColor transition duration-300 ease-linear`}
+                                className={`${navLink.path === pathname ? 'text-primaryColor border-b border-primaryColor':'text-headerColor'} mb-6 uppercase font-headerFont font-semibold md:mb-0 w-fit text-[0.7rem] tracking-widest hover:text-primaryColor hover:border-b border-primaryColor transition duration-300 ease-linear`}
                             >
                                 <Link
                                     href={navLink.path}

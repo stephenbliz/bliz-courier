@@ -11,7 +11,7 @@ export default {
       colors: {
         primaryColor: '#f6ab36',
         headerColor: '#222222',
-        shadowColor: '#eaeaea',
+        shadowColor: '#eaeaeaaa',
         whiteColor: '#ffffff',
         textColor: '#cecece'
       },
