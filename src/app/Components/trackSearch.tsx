@@ -1,12 +1,18 @@
 'use client';
 import { useState } from "react";
+import { motion } from "motion/react";
+import { slideInTopVariant } from "../Utils/animations";
 
 export default function TrackSearch(){
     const [id, setId] = useState('');
 
     return(
-        <form
+        <motion.form
             className="absolute w-[90%] md:w-[60%] py-[2rem] shadow-lg shadow-shadowColor bg-whiteColor rounded z-[20] top-[85%] left-[50%] -translate-x-[50%]"
+            // variants={slideInTopVariant}
+            initial={{top: '100%', opacity: 0}}
+            whileInView={{top: '85%', opacity: 1, transition: {duration:0.5}}}
+            viewport={{once: true}}
         >
             <div
                 className="flex items-center justify-between mb-8"
@@ -40,6 +46,6 @@ export default function TrackSearch(){
                     track your product
                 </button>
             </div>
-        </form>
+        </motion.form>
     )
 }

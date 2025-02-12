@@ -32,7 +32,7 @@ export default function RootLayout({
       className={`${roboto.variable} ${poppins.variable}`}
     >
       <body
-        className={` antialiased text-textColor text-[0.9rem] tracking-wider leading-relaxed font-bodyFont bg-whiteColor`}
+        className={`text-textColor text-[0.9rem] tracking-wider leading-relaxed font-bodyFont bg-whiteColor`}
       >
         <Header />
           {children}
