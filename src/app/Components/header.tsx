@@ -3,6 +3,8 @@ import Link from "next/link";
 import { IoMdMenu } from "react-icons/io";
 import { IoMdClose } from "react-icons/io";
 import { usePathname } from "next/navigation";
+import { motion } from "motion/react";
+import { headerVariant } from "../Utils/animations";
 import { useState } from "react";
 
 export default function Header(){
@@ -23,11 +25,14 @@ export default function Header(){
     }
 
     return(
-        <header
-            className={`${openMenu && 'h-[50vh]'} mb-8 shadow-2xl shadow-shadowColor fixed top-0 transition duration-300 ease-linear left-0 w-[100vw] px-[5%] py-[1.5rem] h-[5rem] md:h-[5rem] bg-whiteColor`}
+        <motion.header
+            variants={headerVariant}
+            initial='hidden'
+            animate={openMenu? 'visible' : 'hidden'}
+            className={`mb-8 overflow-hidden shadow-2xl transition-all  shadow-shadowColor fixed top-0 duration-300 ease-linear left-0 w-[100vw] py-[1.5rem] md:py-0 px-[5%] md:h-[5rem] bg-whiteColor`}
         >
             <nav 
-                className="flex items-center justify-between"
+                className="flex items-center justify-between flex-wrap "
             >
                 <div
                     className="md:w-[20%] text-primaryColor font-bold uppercase md:text-2xl"
@@ -38,15 +43,21 @@ export default function Header(){
                         blizcourier
                     </Link>
                 </div>
+                <span
+                    className="md:hidden text-4xl w-fit text-headerColor"
+                    onClick={handleOpenMenu}
+                >
+                    {openMenu ? <IoMdClose /> : <IoMdMenu />}
+                </span>
                 <ul
-                    className={`${openMenu ? 'block': 'hidden'} absolute md:relative md:flex items-center top-[6rem] md:top-0 justify-between md:w-[70%]`}
+                    className={` transition-all duration-300 md:py-[1.5rem] ease-linear md:flex items-center justify-between w-full h-[50vh] mt-8 md:mt-0 md:h-[5rem] md:w-[70%]`}
                 >
                     {
                         navLinks.map((navLink)=>(
                             <li
                                 key={navLink.id}
                                 onClick={()=>setOpenMenu(false)}
-                                className={`${navLink.path === pathname ? 'text-primaryColor border-b border-primaryColor':'text-headerColor'} ${openMenu ? 'mb-6': 'mb-0'} uppercase w-fit text-sm font-bold hover:text-primaryColor hover:border-b border-primaryColor transition duration-300 ease-linear`}
+                                className={`${navLink.path === pathname ? 'text-primaryColor border-b border-primaryColor':'text-headerColor'} mb-6 uppercase md:mb-0 w-fit text-sm font-bold hover:text-primaryColor hover:border-b border-primaryColor transition duration-300 ease-linear`}
                             >
                                 <Link
                                     href={navLink.path}
@@ -57,13 +68,7 @@ export default function Header(){
                         ))
                     }
                 </ul>
-                <span
-                    className="md:hidden block text-4xl w-fit text-headerColor"
-                    onClick={handleOpenMenu}
-                >
-                    {openMenu ? <IoMdClose /> : <IoMdMenu />}
-                </span>
             </nav>
-        </header>
+        </motion.header>
     )
 }
