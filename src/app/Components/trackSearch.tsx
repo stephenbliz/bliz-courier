@@ -1,17 +1,15 @@
 'use client';
 import { useState } from "react";
 import { motion } from "motion/react";
-import { slideInTopVariant } from "../Utils/animations";
 
 export default function TrackSearch(){
     const [id, setId] = useState('');
 
     return(
         <motion.form
-            className="absolute w-[90%] md:w-[60%] py-[2rem] shadow-lg shadow-shadowColor bg-whiteColor rounded z-[20] top-[85%] left-[50%] -translate-x-[50%]"
-            // variants={slideInTopVariant}
-            initial={{top: '100%', opacity: 0}}
-            whileInView={{top: '85%', opacity: 1, transition: {duration:0.5}}}
+            className="absolute w-[90%] md:w-[60%] py-[2rem] shadow-lg shadow-shadowColor bg-whiteColor rounded z-[20] top-[22rem] sm:top-[20rem] md:top-[22rem] lg:top-[27.5rem] left-[50%] -translate-x-[50%]"
+            initial={{y: 60, x: "-50%", opacity: 0}}
+            whileInView={{y: 0, x: "-50%", opacity: 1, transition: {duration:0.5}}}
             viewport={{once: true}}
         >
             <div
