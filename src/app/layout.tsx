@@ -5,7 +5,7 @@ import Header from "./Components/header";
 import Footer from "./Components/footer";
 
 const poppins = Poppins({
-  weight: ['400','500', '700'],
+  weight: ['400','600', '700'],
   variable: "--font-poppins",
   subsets: ["latin"],
 });

@@ -13,7 +13,7 @@ export default {
         headerColor: '#222222',
         shadowColor: '#eaeaeaaa',
         whiteColor: '#ffffff',
-        textColor: '#cecece'
+        textColor: '#b1b0b0'
       },
       fontFamily: {
         headerFont: ['var(--font-poppins)', 'sans-serif'],
