@@ -29,7 +29,7 @@ export default function AboutSection(){
                 >
                      We are committed to providing fast, reliable, and 
                      secure courier delivery services tailored to meet 
-                     your needs. Whether it's personal packages, business 
+                     your needs. Whether it&apos;s personal packages, business 
                      shipments, or urgent deliveries, we ensure that 
                      your items reach their destination safely and on time.
                 </motion.p>
