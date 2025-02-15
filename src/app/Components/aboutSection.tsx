@@ -25,7 +25,7 @@ export default function AboutSection(){
                     variants={slideInTopVariant}
                     initial='hidden'
                     whileInView='visible'
-                    viewport={{once:true, amount: 1}}
+                    viewport={{once:true, amount: 0.2}}
                 >
                      We are committed to providing fast, reliable, and 
                      secure courier delivery services tailored to meet 
@@ -45,7 +45,7 @@ export default function AboutSection(){
                                     variants={slideInTopVariant}
                                     initial='hidden'
                                     whileInView='visible'
-                                    viewport={{once:true, amount: 1}}
+                                    viewport={{once:true, amount: 0.5}}
                                 >
                                     {feature.icon}
                                 </motion.div>
