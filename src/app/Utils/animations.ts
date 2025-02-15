@@ -1,18 +1,16 @@
-
-
 export const headerVariant = {
     hidden: {
         height: '5rem',
         transition: {
-            duratiion: 3,
-            ease: 'easeIn'
+            duratiion: 0.5,
+            ease: 'easeInOut'
         }
     },
     visible: {
         height: '60vh',
         transition: {
-            duratiion: 3,
-            ease: 'easeIn'
+            duratiion: 0.5,
+            ease: 'easeInOut'
         }
     }
 }
@@ -27,7 +25,8 @@ export const slideInTopVariant = {
         y: 0,
         transition: {
             duration: 0.5,
-            ease: 'linear'
+            type: 'spring',
+            stiffness: 120
         }
     }
 }
@@ -43,7 +42,8 @@ export const slideInRightVariant = {
         transition: {
             duration: 0.3,
             delay: 0.7,
-            ease: 'easeIn'
+            type: 'spring',
+            stiffness: 120
         }
     }
 }
@@ -58,7 +58,24 @@ export const slideInLeftVariant = {
         x: 0,
         transition: {
             duration: 0.3,
-            ease: 'linear'
+            type: 'spring',
+            stiffness: 120
+        }
+    }
+}
+
+export const leftRotateVariant = {
+    hidden: {
+        opacity: 0,
+        rotate: 90
+    },
+    visible: {
+        opacity: 1,
+        rotate: 0,
+        transition: {
+            duration: 0.7,
+            delay: 0.3,
+            ease: 'easeInOut'
         }
     }
 }

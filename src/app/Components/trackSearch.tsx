@@ -9,8 +9,8 @@ export default function TrackSearch(){
         <motion.form
             className="absolute w-[90%] md:w-[60%] py-[2rem] shadow-lg shadow-shadowColor bg-whiteColor rounded z-[20] top-[22rem] sm:top-[20rem] md:top-[22rem] lg:top-[27.5rem] left-[50%] -translate-x-[50%]"
             initial={{y: 60, x: "-50%", opacity: 0}}
-            whileInView={{y: 0, x: "-50%", opacity: 1, transition: {duration:0.5}}}
-            viewport={{once: true}}
+            whileInView={{y: 0, x: "-50%", opacity: 1, transition: {duration:0.5, type: 'spring', stiffness: 120}}}
+            viewport={{once: true, amount: 1}}
         >
             <div
                 className="flex items-center justify-between mb-8"

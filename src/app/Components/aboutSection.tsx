@@ -4,7 +4,7 @@ import { TfiRocket } from "react-icons/tfi";
 import { MdOutlineSecurity } from "react-icons/md";
 import { FaTruckFront } from "react-icons/fa6";
 import { motion } from "motion/react";
-import { slideInLeftVariant, slideInTopVariant } from "../Utils/animations";
+import { leftRotateVariant, slideInLeftVariant, slideInTopVariant } from "../Utils/animations";
 
 export default function AboutSection(){
     const features = [
@@ -25,7 +25,7 @@ export default function AboutSection(){
                     variants={slideInTopVariant}
                     initial='hidden'
                     whileInView='visible'
-                    viewport={{once:true}}
+                    viewport={{once:true, amount: 1}}
                 >
                      We are committed to providing fast, reliable, and 
                      secure courier delivery services tailored to meet 
@@ -45,12 +45,16 @@ export default function AboutSection(){
                                     variants={slideInTopVariant}
                                     initial='hidden'
                                     whileInView='visible'
-                                    viewport={{once:true}}
+                                    viewport={{once:true, amount: 1}}
                                 >
                                     {feature.icon}
                                 </motion.div>
-                                <h2
-                                    className="w-fit"
+                                <motion.h2
+                                    className="w-fit origin-right"
+                                    variants={leftRotateVariant}
+                                    initial='hidden'
+                                    whileInView='visible'
+                                    viewport={{once: true, amount: 0.6}}
                                 >
                                     <span
                                         className=" uppercase font-semibold block font-headerFont text-headerColor "
@@ -60,7 +64,7 @@ export default function AboutSection(){
                                     <span>
                                         {feature.desc}
                                     </span>
-                                </h2>
+                                </motion.h2>
                             </div>
                         ))
                     }
