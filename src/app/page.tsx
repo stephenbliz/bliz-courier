@@ -1,6 +1,8 @@
 import Hero from "./Components/hero"
 import TrackSearch from "./Components/trackSearch"
 import AboutSection from "./Components/aboutSection"
+import Image from "next/image"
+import CostCalculation from "./Components/costCalculation"
 
 export default function Home(){
     return(
@@ -21,6 +23,38 @@ export default function Home(){
                     about us
                 </h1>
                 <AboutSection />
+            </section>
+            <section
+                className="px-[5%] py-[5rem] flex flex-wrap justify-between items-start"
+            >
+                <div
+                    className="md:w-[48%]"
+                >
+                    <Image 
+                        src='/images/deliveryVan.png'
+                        alt="Delivery man"
+                        width={400}
+                        height={300}
+                        className="w-full"
+                    />
+                </div>
+                <div
+                    className="md:w-[48%]"
+                >
+                    <h1
+                        className="uppercase text-lg md:text-2xl font-bold mb-4 text-headerColor font-headerFont"
+                    >
+                        calculate your cost
+                    </h1>
+                    <p
+                        className="mb-8"
+                    >
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Voluptatem quisquam vitae impedit ullam, enim aliquid nostrum 
+                        soluta mollitia ipsum numquam harum pariatur! Neque cum 
+                    </p>
+                    <CostCalculation />
+                </div>
             </section>
         </section>
     )
