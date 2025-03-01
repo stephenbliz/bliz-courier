@@ -5,6 +5,7 @@ import { ChangeEvent, FormEvent, useState } from "react";
 
 export default function CostCalculation(){
     const apiKey= process.env.NEXT_PUBLIC_API_KEY;
+    const [cost, setCost] = useState<string | null>(null);
     const [calculate, setCalculate] = useState({
         height: '',
         width: '',
@@ -12,7 +13,7 @@ export default function CostCalculation(){
         weight: '',
         from: '',
         to: '',
-        package: 'usual delivery'
+        package: '10'
     });
     const formDetails = [
         {name: 'height', value: calculate.height, unit: '(cm)', id: 1},
@@ -29,7 +30,6 @@ export default function CostCalculation(){
     }
 
     const getCordinates = async (place: string) => {
-        // const apiKey= process.env.NEXT_PUBLIC_API_KEY;
         const url = `https://api.openrouteservice.org/geocode/search?api_key=${apiKey}&text=${encodeURIComponent(place)}`
         try{
             const res = await fetch(url);
@@ -41,19 +41,8 @@ export default function CostCalculation(){
             console.log(error);
         }
     }
-
-    // const getDistance = async (fromLong: number, fromLat: number, toLong: number, toLat: number) =>{
-    //     const url = `https://api.openrouteservice.org/v2/directions/driving-car?api_key=${apiKey}&start=${fromLong},${fromLat}&end=${toLong},${toLat}`;
-    //     try{
-    //         const res = await fetch(url);
-    //         const data = await res.json();
-    //         console.log(data)
-    //     }catch(error){
-    //         console.log(error);
-    //     }
-
-    // }
-
+    // Haversine formular
+    
     const  getDistance =(
         lat1: number,
         lon1: number,
@@ -81,12 +70,33 @@ export default function CostCalculation(){
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) =>{
         e.preventDefault();
-        console.log(calculate);
+        
         const from = await getCordinates(calculate.from);
         const to = await getCordinates(calculate.to);
-        console.log('cordinates:', from, '--', to)
+        
         const distance = getDistance(from[1], from[0], to[1], to[0]).toFixed(2);
-        console.log('Distance = ', distance);
+        const distancCharge = Number(distance) *  0.05;
+        const weightCharge = Number(calculate.weight) * 2;
+        const heightInches = Number(calculate.height) / 2.54;
+        const widthInches = Number(calculate.width) / 2.54;
+        const depthInches = Number(calculate.depth) / 2.54;
+        const dimWeight = heightInches * widthInches * depthInches / 139;
+        const dimWeightCharge = dimWeight * 2;
+        const baseRate = 50;
+
+        console.log(distancCharge, weightCharge, heightInches, widthInches, depthInches, dimWeight, dimWeightCharge)
+
+        if(dimWeightCharge > weightCharge){
+            const shippingCost = baseRate + distancCharge + dimWeightCharge + Number(calculate.package);
+            const fixed = shippingCost.toFixed(0)
+            setCost(fixed);
+        }else{
+            const shippingCost = baseRate + distancCharge + weightCharge + Number(calculate.package);
+            const fixed = shippingCost.toFixed(0)
+            setCost(fixed);
+            
+        }
+
         setCalculate({
             height: '',
             width: '',
@@ -152,9 +162,9 @@ export default function CostCalculation(){
                     onChange={(e)=>setCalculate({...calculate, package: e.target.value})}
                     value={calculate.package}
                 >
-                <option value="usual delivery">usual delivery</option>
-                <option value="fast delivery">fast delivery +$50</option>
-                <option value="express delivery">express delivery +$100</option>
+                <option value="10">usual delivery</option>
+                <option value="50">fast delivery +$50</option>
+                <option value="100">express delivery +$100</option>
             </select>
             </motion.div>
             <motion.div
@@ -173,7 +183,7 @@ export default function CostCalculation(){
                 <span
                     className="w-[40%] py-2 px-4 rounded-r text-center bg-gray-400"
                 >
-                    $0
+                    {cost ? <span>${cost}</span> : <span>$0</span>}
                 </span>
             </motion.div>
         </form>
