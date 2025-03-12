@@ -1,11 +1,13 @@
 import Hero from "./Components/hero"
 import TrackSearch from "./Components/trackSearch"
 import AboutSection from "./Components/aboutSection"
-// import Image from "next/image"
 import CostCalculation from "./Components/costCalculation"
-import DeliveryMan from "./Components/deliveryMan"
+import ImageComponent from "./Components/imageComponent"
+import { slideInRightVariant } from "./Utils/animations"
+import Steps from "./Components/steps"
 
 export default function Home(){
+   
     return(
         <section
             className="mt-[5rem] relative overflow-hidden"
@@ -29,7 +31,11 @@ export default function Home(){
                 className="px-[5%] py-[5rem] flex flex-wrap justify-between items-start"
             >
                 
-                <DeliveryMan />
+                <ImageComponent 
+                    variant={slideInRightVariant}
+                    alt='A delivery man pushing trolley'
+                    src="/images/rollingTrolley.jpg"
+                />
                 <div
                     className="md:w-[48%]"
                 >
@@ -41,13 +47,13 @@ export default function Home(){
                     <p
                         className="mb-8"
                     >
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                        Voluptatem quisquam vitae impedit ullam, enim aliquid nostrum 
-                        soluta mollitia ipsum numquam harum pariatur! Neque cum 
+                       Easily estimate your shipment cost with our transparent pricing system.
+                       Get started now and enjoy fast, reliable delivery at the best rates!
                     </p>
                     <CostCalculation />
                 </div>
             </section>
+            <Steps />
         </section>
     )
 }

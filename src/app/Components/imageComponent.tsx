@@ -1,20 +1,20 @@
 'use client';
 import Image from "next/image"
 import { motion } from "motion/react"
-import { slideInRightVariant2 } from "../Utils/animations"
+import { imageComponentProp } from "../Utils/types";
 
-export default function DeliveryMan(){
+export default function ImageComponent({position, variant, alt, src}:imageComponentProp){
     return(
         <motion.div
-            className="md:w-[48%]"
-            variants={slideInRightVariant2}
+            className={`md:w-[48%] ${position}`}
+            variants={variant}
             initial='hidden'
             whileInView='visible'
-            viewport={{once: true, amount: 0.5}}
+            viewport={{once: true, amount: 0.2}}
         >
             <Image 
-                src='/images/rollingTrolley.jpg'
-                alt="Delivery man"
+                src={src}
+                alt={alt}
                 width={400}
                 height={300}
                 className="w-full"
